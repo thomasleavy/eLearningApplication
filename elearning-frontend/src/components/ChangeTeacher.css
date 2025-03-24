@@ -1,0 +1,20 @@
+/* src/components/ChangeTeacher.css */
+.change-teacher {
+    max-width: 400px;
+    margin: 20px auto;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .change-teacher input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .change-teacher button {
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+  }
+  

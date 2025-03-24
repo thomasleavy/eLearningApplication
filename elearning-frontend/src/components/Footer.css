@@ -1,0 +1,47 @@
+.footer {
+  background-color: #333;       /* Distinct dark background */
+  color: #fff;                  /* White text */
+  padding: 10px 0;              /* Smaller padding for a compact footer */
+  text-align: center;
+  width: 100%;
+  /* Instead of fixed positioning, we let the footer flow naturally at the end of your content.
+     To push the footer to the bottom on short pages, wrap your app content in a container
+     with "min-height: 100vh; display: flex; flex-direction: column;" and give the main content flex: 1.
+  */
+  box-sizing: border-box;
+}
+
+.footer-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 5px;
+}
+
+.footer-icon {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
+}
+
+.footer-icon:hover {
+  transform: scale(1.1);
+}
+
+.footer-text {
+  font-size: 12px;
+}
+
+/* Responsive adjustments if needed */
+@media (max-width: 600px) {
+  .footer-icon {
+    width: 20px;
+    height: 20px;
+  }
+  .footer-text {
+    font-size: 10px;
+  }
+}
+
+  
+  

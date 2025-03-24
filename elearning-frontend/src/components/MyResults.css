@@ -1,0 +1,97 @@
+/* src/components/MyResults.css */
+.my-results {
+  max-width: 800px;
+  margin: 20px auto;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+}
+
+.my-results h1 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.quiz-selection {
+  margin-bottom: 20px;
+}
+
+.quiz-selection label {
+  font-size: 1.2rem;
+  margin-right: 10px;
+}
+
+.quiz-selection select {
+  padding: 8px;
+  font-size: 1rem;
+  margin-right: 10px;
+}
+
+.view-results-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.view-results-button:hover {
+  background-color: #45a049;
+}
+
+.results-display {
+  margin-top: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.result-details {
+  text-align: left;
+  margin-top: 10px;
+}
+
+.questions-results {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.question-result {
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.icon-correct {
+  color: green;
+  font-size: 1.5rem;
+}
+
+.icon-incorrect {
+  color: red;
+  font-size: 1.5rem;
+}
+
+.back-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #f5576c;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #e0455a;
+}

@@ -1,0 +1,91 @@
+/* src/components/PupilResults.css */
+.pupil-results {
+  max-width: 800px;
+  margin: 20px auto;
+  text-align: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.quiz-selection {
+  margin-bottom: 20px;
+}
+
+.quiz-selection label {
+  font-size: 1.2rem;
+  margin-right: 10px;
+}
+
+.quiz-selection select {
+  padding: 8px;
+  font-size: 1rem;
+  margin-right: 10px;
+}
+
+.quiz-selection button {
+  padding: 8px 16px;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: #f5576c;
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+.quiz-selection button:hover {
+  background-color: #f093fb;
+}
+
+.results-table-container {
+  margin-top: 20px;
+}
+
+.results-table-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.results-table-container th, 
+.results-table-container td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: center;
+}
+
+.results-table-container th {
+  background-color: #f2f2f2;
+}
+
+.correct {
+  color: green;
+  font-size: 1.5rem;
+}
+
+.incorrect {
+  color: red;
+  font-size: 1.5rem;
+}
+
+.average-score {
+  margin-top: 15px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.back-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: #f5576c;
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #f093fb;
+}

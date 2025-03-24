@@ -1,0 +1,15 @@
+/* src/components/PupilHeader.css */
+.pupil-header {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    background-color: #f7f7f7;
+    margin-bottom: 15px;
+  }
+  
+  .pupil-pin {
+    width: 80px;  /* smaller size */
+    height: auto;
+    border-radius: 50%;
+  }
+  

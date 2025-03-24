@@ -1,0 +1,25 @@
+/* src/components/PupilDashboard.css */
+.pupil-dashboard {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .dashboard-buttons {
+    margin-top: 20px;
+  }
+  /* src/components/PupilDashboard.css */
+.pupil-dashboard {
+  text-align: center;
+  padding: 20px;
+}
+
+.dashboard-buttons {
+  margin-top: 20px;
+}
+
+.dashboard-buttons button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}

@@ -1,0 +1,29 @@
+/* src/components/Quiz.css */
+.quiz {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+  }
+  
+  .question-block {
+    margin-bottom: 20px;
+  }
+  
+  .question-block h3 {
+    margin-bottom: 10px;
+  }
+  
+  .question-block ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .question-block li {
+    margin-bottom: 8px;
+  }
+  
+  .submit-button {
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
