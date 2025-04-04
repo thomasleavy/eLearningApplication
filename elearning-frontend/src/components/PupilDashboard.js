@@ -1,9 +1,11 @@
+//PupilDashboard.js
+
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import PupilHeader from './PupilHeader';
 import './PupilDashboard.css';
 import axios from 'axios';
-import Footer from './Footer';  // Import the Footer component
+import Footer from './Footer';
 
 const PupilDashboard = () => {
   const navigate = useNavigate();
@@ -22,8 +24,8 @@ const PupilDashboard = () => {
     navigate('/myresults');
   };
 
-  const handleSelectPin = () => {
-    navigate('/selectpin');
+  const handleSelectAvatar = () => {
+    navigate('/selectavatar');
   };
 
   const handleChangeTeacher = () => {
@@ -51,11 +53,10 @@ const PupilDashboard = () => {
         <button onClick={handleEnterQuiz}>Enter PIN to Take Quiz</button>
         <button onClick={handleMyStatistics}>My Statistics</button>
         <button onClick={handleMyResults}>My Results</button>
-        <button onClick={handleSelectPin}>Select/Change PIN</button>
+        <button onClick={handleSelectAvatar}>Select Avatar</button>
         <button onClick={handleChangeTeacher}>Associate with a Teacher</button>
         <button onClick={handleLogout}>Logout</button>
       </div>
-     
     </div>
   );
 };

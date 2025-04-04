@@ -1,29 +1,106 @@
-/* src/components/Quiz.css */
+/*Quiz.css */
+
+
 .quiz {
-    max-width: 600px;
-    margin: 20px auto;
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+}
+
+
+.quiz h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.question-block {
+  margin-bottom: 25px;
+  padding: 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  transition: transform 0.2s ease;
+}
+
+.question-block:hover {
+  transform: translateY(-2px);
+}
+
+.question-block h3 {
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  color: #444;
+}
+
+
+.question-block ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.question-block li {
+  margin-bottom: 12px;
+}
+
+
+.question-block label {
+  font-size: 1.1rem;
+  color: #555;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.question-block input[type="radio"] {
+  margin-right: 10px;
+  transform: scale(1.2);
+}
+
+
+.submit-button {
+  display: block;
+  width: 100%;
+  padding: 15px 0;
+  font-size: 1.3rem;
+  color: #fff;
+  background-color: #4a90e2;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 20px;
+}
+
+.submit-button:hover {
+  background-color: #357ab8;
+  transform: translateY(-2px);
+}
+
+/* @media */
+@media (max-width: 600px) {
+  .quiz {
     padding: 20px;
+    margin: 20px;
   }
-  
-  .question-block {
-    margin-bottom: 20px;
+
+  .quiz h1 {
+    font-size: 2rem;
   }
-  
+
   .question-block h3 {
-    margin-bottom: 10px;
+    font-size: 1.3rem;
   }
-  
-  .question-block ul {
-    list-style-type: none;
-    padding: 0;
+
+  .question-block label {
+    font-size: 1rem;
   }
-  
-  .question-block li {
-    margin-bottom: 8px;
-  }
-  
+
   .submit-button {
-    padding: 10px 20px;
-    cursor: pointer;
+    font-size: 1.1rem;
   }
-  
+}

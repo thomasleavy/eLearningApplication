@@ -1,4 +1,5 @@
-// src/components/CreateAssignQuiz.js
+//CreateAssignQuiz.js
+
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -19,11 +20,11 @@ const CreateAssignQuiz = () => {
     }))
   );
 
-  // Dropdown state for existing quizzes:
+  // Dropdown for existing quizzes:
   const [quizList, setQuizList] = useState([]);
   const [selectedQuizId, setSelectedQuizId] = useState("new");
 
-  // Fetch teacher's existing quizzes on mount.
+  // Fetch teacher's existing quizzes......
   useEffect(() => {
     if (teacherId) {
       axios.get(`/api/quiz/teacher/${teacherId}`)
@@ -31,7 +32,7 @@ const CreateAssignQuiz = () => {
           setQuizList(response.data);
         })
         .catch(error => {
-          console.error("Error fetching quizzes:", error);
+          console.error("there was an error fetching quizzes:", error);
         });
     }
   }, [teacherId]);
@@ -60,12 +61,12 @@ const CreateAssignQuiz = () => {
     setQuestions(newQuestions);
   };
 
-  // When an existing quiz is selected, prefill the form.
+  // prefill a form for a quiz that has already been made
   const handleQuizSelection = (e) => {
     const selectedId = e.target.value;
     setSelectedQuizId(selectedId);
     if (selectedId === "new") {
-      // Reset the form for a new quiz.
+      // Reset the form for new quiz.
       setQuizTitle('');
       setQuestions(
         Array.from({ length: 5 }, () => ({
@@ -75,7 +76,7 @@ const CreateAssignQuiz = () => {
         }))
       );
     } else {
-      // Find the selected quiz in the quizList.
+      // find selected quiz in the list.
       const selectedQuiz = quizList.find(q => String(q.id) === selectedId);
       if (selectedQuiz) {
         setQuizTitle(selectedQuiz.quizTitle);
@@ -116,8 +117,8 @@ const CreateAssignQuiz = () => {
     axios.post('/api/quiz/create', quizData)
       .then(response => navigate('/pincode', { state: { quizCode } }))
       .catch(error => {
-        console.error('Error saving quiz:', error);
-        alert('Error saving quiz. Check console for details.');
+        console.error('there was an error saving the quiz:', error);
+        alert('Error saving quiz, check console?');
       });
   };
 
@@ -129,7 +130,7 @@ const CreateAssignQuiz = () => {
     <div className="create-assign-quiz">
       <h1>Create/Assign Quiz</h1>
       
-      {/* Dropdown to select an existing quiz or choose new */}
+      {/* Dropdown to pick an existing quiz or to picl a new one */}
       <div className="quiz-dropdown">
         <label>Select Existing Quiz:</label>
         <select value={selectedQuizId} onChange={handleQuizSelection}>

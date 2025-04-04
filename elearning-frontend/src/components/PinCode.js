@@ -1,4 +1,4 @@
-// src/components/PinCode.js
+//PinCode.js
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './PinCode.css';
@@ -9,7 +9,7 @@ const PinCode = () => {
   const { quizCode } = useLocation().state || {};
 
   if (!quizCode) {
-    return <div>No quiz code found. Please try creating a quiz again.</div>;
+    return <div>No quiz code found. Please create a quiz again!</div>;
   }
 
   return (

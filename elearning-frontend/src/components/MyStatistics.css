@@ -1,10 +1,11 @@
-/* src/components/MyStatistics.css */
+/*MyStatistics.css */
+
 .my-statistics {
   max-width: 600px;
   margin: 20px auto;
   text-align: center;
   padding: 20px;
-  background: linear-gradient(135deg, #f093fb, #f5576c);
+  background: linear-gradient(135deg, #302645, #f5576c);
   border-radius: 10px;
   color: #fff;
   font-family: Arial, sans-serif;

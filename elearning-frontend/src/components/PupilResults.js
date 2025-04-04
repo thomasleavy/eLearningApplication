@@ -1,4 +1,5 @@
-// src/components/PupilResults.js
+// PupilResults.js
+
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './PupilResults.css';
@@ -10,7 +11,7 @@ const PupilResults = () => {
   const [selectedQuizId, setSelectedQuizId] = useState('');
   const [resultsData, setResultsData] = useState(null);
 
-  // Use teacher's own userId as teacherId.
+  // Use teacher's userId as teacherId
   const teacherId = localStorage.getItem("userId");
 
   useEffect(() => {
@@ -18,7 +19,7 @@ const PupilResults = () => {
       fetch(`/api/quiz/teacher/${teacherId}`)
         .then(response => response.json())
         .then(data => setQuizList(data))
-        .catch(error => console.error("Error fetching quiz list:", error));
+        .catch(error => console.error("there was an error fetching the quiz list:", error));
     } else {
       setQuizList([]);
     }
@@ -31,21 +32,22 @@ const PupilResults = () => {
 
   const handleViewResults = () => {
     if (!selectedQuizId) {
-      alert("Please select a quiz.");
+      alert("Please choose a quiz.");
       return;
     }
     fetch(`/api/quiz/results/${selectedQuizId}`)
       .then(response => {
         if (!response.ok) {
-          throw new Error("No results found");
+          throw new Error("No results found!!!");
         }
         return response.json();
       })
       .then(data => setResultsData(data))
       .catch(error => {
-        console.error("Error fetching quiz results:", error);
-        alert("Error fetching quiz results.");
+        console.error("there was an error fetching the quiz results:", error);
+        alert("there was an error fetching quiz results");
       });
+      
   };
 
   const renderTable = () => {

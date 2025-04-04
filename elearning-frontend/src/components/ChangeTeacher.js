@@ -1,4 +1,4 @@
-// src/components/ChangeTeacher.js
+//ChangeTeacher.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -11,7 +11,7 @@ const ChangeTeacher = () => {
   const handleChangeTeacher = () => {
     const pupilId = localStorage.getItem("userId");
     if (!pupilId) {
-      alert("User not found. Please log in again.");
+      alert("the user was not found");
       return;
     }
     axios.put(`/api/pupils/${pupilId}/teacher`, { teacherUsername: newTeacherUsername })
@@ -19,12 +19,12 @@ const ChangeTeacher = () => {
         if (response.data && response.data.teacherId) {
           localStorage.setItem("teacherId", response.data.teacherId);
         }
-        alert('Teacher updated successfully.');
+        alert('Teacher updated!');
         navigate('/pupil-dashboard');
       })
       .catch(error => {
-        console.error("Error updating teacher:", error);
-        alert("Failed to update teacher. Please check the teacher's username and try again.");
+        console.error("there was an error updating teacher:", error);
+        alert("sorry, but failed to update teacher. Please check the teacher's username and try again!");
       });
   };
 
@@ -37,7 +37,7 @@ const ChangeTeacher = () => {
       <h1>Change Your Teacher</h1>
       <input 
         type="text"
-        placeholder="Enter new teacher's username"
+        placeholder="Enter a new teacher's username"
         value={newTeacherUsername}
         onChange={(e) => setNewTeacherUsername(e.target.value)}
       />

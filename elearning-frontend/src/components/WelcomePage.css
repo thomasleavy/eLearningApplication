@@ -1,25 +1,67 @@
+/*WelcomePage.css */
+
 .welcome-page {
-    display: flex;
-    justify-content: space-around;
-    padding: 20px;
-  }
-  
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 20px;
+  gap: 20px;
+  flex-wrap: wrap;
+  background-color: #f9f9f9;
+  min-height: calc(100vh - 80px); 
+}
+
+.container {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 30px;
+  width: 45%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.container h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.container form input,
+.container form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.container form button {
+  width: 100%;
+  padding: 12px;
+  font-size: 1.1rem;
+  background-color: #F5576C;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.container form button:hover {
+  background-color: #f08392;
+}
+
+/*media queries*/
+@media (max-width: 768px) {
   .container {
-    border: 1px solid #ccc;
-    padding: 20px;
-    width: 40%;
-    border-radius: 5px;
+    width: 90%;
   }
   
-  input, select {
-    display: block;
-    width: 100%;
-    margin-bottom: 10px;
-    padding: 8px;
+  .welcome-page {
+    flex-direction: column;
+    align-items: center;
   }
-  
-  button {
-    padding: 10px;
-    width: 100%;
-  }
+}
+
   

@@ -1,4 +1,4 @@
-// src/components/Quiz.js
+//Quiz.js
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -9,12 +9,9 @@ import Footer from './Footer';
 const Quiz = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const quizData = location.state?.quizData; // may be undefined
-
-  // Always initialize answers unconditionally.
+  const quizData = location.state?.quizData;
   const [answers, setAnswers] = useState([]);
 
-  // Initialize answers when quizData is available.
   useEffect(() => {
     if (quizData && quizData.questions) {
       setAnswers(Array(quizData.questions.length).fill(null));
@@ -22,7 +19,7 @@ const Quiz = () => {
   }, [quizData]);
 
   if (!quizData) {
-    return <div>No quiz data found. Please try again.</div>;
+    return <div>No quiz information was found. Please try again!</div>;
   }
 
   const handleOptionChange = (qIndex, optionIndex) => {
@@ -32,11 +29,8 @@ const Quiz = () => {
   };
 
   const handleSubmitQuiz = () => {
-    // Retrieve the actual pupil's username and userId from localStorage.
     const actualUsername = localStorage.getItem("username") || "unknown";
     const actualUserId = Number(localStorage.getItem("userId")) || 0;
-
-    // Build payload using the actual user ID and username.
     const answerPayloads = quizData.questions.map((q, index) => ({
       userId: actualUserId,
       username: actualUsername,
@@ -44,7 +38,7 @@ const Quiz = () => {
       questionNumber: q.questionNumber,
       answer: answers[index] !== null ? (answers[index] + 1).toString() : '',
       correct: answers[index] === q.correctAnswer,
-      datetime: null,  // Let the backend set the timestamp if null.
+      datetime: null, 
     }));
 
     axios.post('/api/quiz/live', answerPayloads)
@@ -53,8 +47,8 @@ const Quiz = () => {
         navigate('/pupil-dashboard');
       })
       .catch(error => {
-        console.error('Error submitting quiz:', error);
-        alert('Error submitting quiz.');
+        console.error('there was an error submitting quiz:', error);
+        alert('there was an error submitting quiz!');
       });
   };
 
@@ -121,7 +115,9 @@ const Quiz = () => {
 
     </div>
   );
+  
 };
+
 
 export default Quiz;
 

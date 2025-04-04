@@ -1,4 +1,4 @@
-// src/main/java/com/example/elearn/repository/QuizLiveRepository.java
+//QuizLiveRepository.java
 package com.example.elearn.repository;
 
 import com.example.elearn.model.QuizLive;

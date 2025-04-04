@@ -1,4 +1,4 @@
-/* src/components/BeginQuiz.css */
+/*BeginQuiz.css */
 .begin-quiz {
   max-width: 400px;
   margin: 0 auto;
@@ -8,6 +8,7 @@
 
 .begin-quiz input,
 .begin-quiz select {
+  
   width: 100%;
   padding: 8px;
   margin-bottom: 20px;

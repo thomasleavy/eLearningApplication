@@ -1,9 +1,10 @@
-// src/App.js
+//App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import Header from './components/Header';
 import WelcomePage from './components/WelcomePage';
 import TeacherDashboard from './components/TeacherDashboard';
-import SelectPin from './components/SelectPin';
+import SelectAvatar from './components/SelectAvatar';
 import PupilResults from './components/PupilResults';
 import PupilDashboard from './components/PupilDashboard';
 import MyStatistics from './components/MyStatistics';
@@ -21,11 +22,13 @@ function App() {
   return (
     <Router>
       <div className="app-container">
+        {/* Header */}
+        <Header />
         <div className="content">
           <Routes>
             <Route path="/" element={<WelcomePage />} />
             <Route path="/teacher-dashboard" element={<TeacherDashboard />} />
-            <Route path="/selectpin" element={<SelectPin />} />
+            <Route path="/selectavatar" element={<SelectAvatar />} />
             <Route path="/pupilresults" element={<PupilResults />} />
             <Route path="/pupil-dashboard" element={<PupilDashboard />} />
             <Route path="/mystatistics" element={<MyStatistics />} />
@@ -46,5 +49,4 @@ function App() {
 }
 
 export default App;
-
 

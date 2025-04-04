@@ -1,4 +1,4 @@
-// src/main/java/com/example/elearn/service/UserService.java
+//UserService.java
 package com.example.elearn.service;
 
 import com.example.elearn.model.User;
@@ -16,16 +16,16 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
     
-    // Create a PasswordEncoder instance using BCrypt.
+    // PasswordEncoder instance w/ BCrypt.
     private PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
-    // Register a new user. The password is hashed before saving.
+    //register new user and password is hashed prior to being saved
     public User registerUser(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userRepository.save(user);
     }
 
-    // Login a user by checking if the raw password matches the hashed password.
+  //loginUser
     public User loginUser(String email, String password) {
         return userRepository.findByEmail(email)
                 .filter(u -> passwordEncoder.matches(password, u.getPassword()))
@@ -40,7 +40,7 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    // Find a teacher by username (only consider users with role "teacher")
+    // Find a teacher by username
     public User findTeacherByUsername(String username) {
         List<User> allUsers = userRepository.findAll();
         return allUsers.stream()

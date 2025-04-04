@@ -1,4 +1,5 @@
-// src/components/ManagePupils.js
+//ManagePupils.js
+
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -23,12 +24,13 @@ const ManagePupils = () => {
     fetchPupils();
   }, [teacherId]);
 
-  const handleDelete = (pupilId) => {
-    if (window.confirm("Are you sure you want to delete this pupil?")) {
-      axios.delete(`/api/pupils/${pupilId}`)
+  const handleDisconnect = (pupilId) => {
+    if (window.confirm("Are you sure you want to disconnect this pupil?")) {
+      
+      axios.put(`/api/pupils/${pupilId}/disconnect`)
         .then(response => {
-          alert("Pupil deleted successfully.");
-          // Re-fetch pupils after deletion.
+          alert("Pupil disconnected successfully.");
+         
           axios.get(`/api/pupils/teacher/${teacherId}`)
             .then(response => {
               setPupils(response.data);
@@ -39,8 +41,8 @@ const ManagePupils = () => {
             });
         })
         .catch(error => {
-          console.error("Error deleting pupil:", error);
-          alert("Error deleting pupil.");
+          console.error("Error disconnecting pupil:", error);
+          alert("Error disconnecting pupil.");
         });
     }
   };
@@ -69,7 +71,7 @@ const ManagePupils = () => {
                 <td>{pupil.username}</td>
                 <td>{pupil.email}</td>
                 <td>
-                  <button onClick={() => handleDelete(pupil.id)}>Delete</button>
+                  <button onClick={() => handleDisconnect(pupil.id)}>Disconnect</button>
                 </td>
               </tr>
             ))}
@@ -79,9 +81,9 @@ const ManagePupils = () => {
         <p>No pupils found.</p>
       )}
       <button className="back-button" onClick={handleBack}>Back to Dashboard</button>
-
     </div>
   );
+  
 };
 
 export default ManagePupils;

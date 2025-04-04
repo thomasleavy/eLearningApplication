@@ -1,3 +1,5 @@
+//statisticscontroller.java
+
 package com.example.elearn.controller;
 
 import com.example.elearn.model.Statistics;
@@ -23,7 +25,7 @@ public class StatisticsController {
                     .orElseGet(() -> ResponseEntity.notFound().build());
     }
     
-    // Endpoint to update login statistics on login.
+    // this endpoint is used to update login stats when a pupil user logs in 
     @PostMapping("/login")
     public ResponseEntity<?> updateLoginStatistics(@RequestBody Statistics statsInput) {
         Statistics updatedStats = statisticsService.createOrUpdateStatistics(
@@ -31,7 +33,7 @@ public class StatisticsController {
         return ResponseEntity.ok(updatedStats);
     }
     
-    // Endpoint to update logout statistics: accumulates session time.
+    // this endpoint is used to update logout statistics i.e. accummulated login time
     @PostMapping("/logout")
     public ResponseEntity<?> updateLogoutStatistics(@RequestBody Map<String, Long> payload) {
         Long userId = payload.get("userId");

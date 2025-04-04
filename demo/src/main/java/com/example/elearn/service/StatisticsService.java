@@ -1,4 +1,4 @@
-// src/main/java/com/example/elearn/service/StatisticsService.java
+//StatisticsService.java
 package com.example.elearn.service;
 
 import com.example.elearn.model.Statistics;
@@ -16,7 +16,7 @@ public class StatisticsService {
     @Autowired
     private StatisticsRepository statisticsRepository;
 
-    // Create or update the statistics record when a pupil logs in.
+    // Create / update  statistics record when pupil logs in
     public Statistics createOrUpdateStatistics(Long userId, String username, LocalDateTime loginTime) {
         Optional<Statistics> opt = statisticsRepository.findByUserId(userId);
         Statistics stats;
@@ -30,12 +30,12 @@ public class StatisticsService {
         return statisticsRepository.save(stats);
     }
 
-    // Fetch the statistics for a given user.
+    // Fetch statistics for user.
     public Optional<Statistics> getStatisticsByUserId(Long userId) {
         return statisticsRepository.findByUserId(userId);
     }
 
-    // Increment the quizzesCompleted count.
+    // increase quizzesCompleted count.
     public Statistics incrementQuizzesCompleted(Long userId) {
         Optional<Statistics> opt = statisticsRepository.findByUserId(userId);
         Statistics stats;
@@ -48,7 +48,7 @@ public class StatisticsService {
         return statisticsRepository.save(stats);
     }
     
-    // Update logout time: calculate session duration, add it to accumulatedTime, and clear loginTime.
+    // update logout time
     public Statistics updateLogoutTime(Long userId) {
         Optional<Statistics> opt = statisticsRepository.findByUserId(userId);
         if (opt.isPresent()) {
@@ -64,16 +64,17 @@ public class StatisticsService {
         return null;
     }
     
-    // New method: add points (1 point per correct answer)
+    // add points (i.e. 1 point for each answewr that os correct)
     public Statistics addPoints(Long userId, int pointsToAdd) {
         Optional<Statistics> opt = statisticsRepository.findByUserId(userId);
         Statistics stats;
+        //conditional statememt
         if (opt.isPresent()) {
             stats = opt.get();
             int currentPoints = (stats.getPoints() != null) ? stats.getPoints() : 0;
             stats.setPoints(currentPoints + pointsToAdd);
         } else {
-            // If no record exists, create one with the points.
+            // If no record is there, make one with the points
             stats = new Statistics(userId, "", pointsToAdd, LocalDateTime.now(), 0L, 0);
         }
         return statisticsRepository.save(stats);

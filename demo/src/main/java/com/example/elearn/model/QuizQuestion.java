@@ -1,3 +1,5 @@
+//quizquestion.java
+
 package com.example.elearn.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -9,33 +11,30 @@ public class QuizQuestion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;  // Unique id for each question
-
-    private Integer questionNumber;  // e.g., 1, 2, 3, 4, 5
-
-    @Column(columnDefinition = "TEXT")
+    private Long id;  //unique id for each quiz quesiton
+    private Integer questionNumber;  //12345
+    @Column(columnDefinition = "TEXT") //1
     private String question;
-
-    @Column(columnDefinition = "TEXT")
+    @Column(columnDefinition = "TEXT") //2
     private String statement1;
-    @Column(columnDefinition = "TEXT")
+    @Column(columnDefinition = "TEXT") //3
     private String statement2;
-    @Column(columnDefinition = "TEXT")
+    @Column(columnDefinition = "TEXT") //4
     private String statement3;
-    @Column(columnDefinition = "TEXT")
+    @Column(columnDefinition = "TEXT") //5
     private String statement4;
 
-    private Integer correctAnswer;  // Index (0-3)
+    private Integer correctAnswer;  // Index from 0 to 3
 
     @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "quiz_id")
     private Quiz quiz;
 
-    // Default constructor
+    //the "default" constructor
     public QuizQuestion() {}
 
-    // Constructor with parameters
+    // this constructor has also got necessary parameters
     public QuizQuestion(Integer questionNumber, String question, String statement1, String statement2,
                         String statement3, String statement4, Integer correctAnswer) {
         this.questionNumber = questionNumber;
@@ -47,7 +46,7 @@ public class QuizQuestion {
         this.correctAnswer = correctAnswer;
     }
 
-    // Getters and setters
+    // Get and set
 
     public Long getId() {
         return id;
@@ -61,20 +60,23 @@ public class QuizQuestion {
     public void setQuestionNumber(Integer questionNumber) {
         this.questionNumber = questionNumber;
     }
+
     public String getQuestion() {
         return question;
-    }
+            }
     public void setQuestion(String question) {
         this.question = question;
-    }
+        }
     public String getStatement1() {
-        return statement1;
+        return 
+        statement1;
     }
     public void setStatement1(String statement1) {
         this.statement1 = statement1;
     }
     public String getStatement2() {
-        return statement2;
+        return 
+        statement2;
     }
     public void setStatement2(String statement2) {
         this.statement2 = statement2;
@@ -83,26 +85,27 @@ public class QuizQuestion {
         return statement3;
     }
     public void setStatement3(String statement3) {
-        this.statement3 = statement3;
+        this.statement3 = 
+        statement3;
     }
     public String getStatement4() {
         return statement4;
     }
     public void setStatement4(String statement4) {
         this.statement4 = statement4;
-    }
+        }
     public Integer getCorrectAnswer() {
         return correctAnswer;
     }
     public void setCorrectAnswer(Integer correctAnswer) {
         this.correctAnswer = correctAnswer;
-    }
+                    }
     public Quiz getQuiz() {
         return quiz;
-    }
+        }
     public void setQuiz(Quiz quiz) {
         this.quiz = quiz;
-    }
+                    }
 }
 
 

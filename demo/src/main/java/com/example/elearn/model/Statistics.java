@@ -1,3 +1,5 @@
+//statistics.java
+
 package com.example.elearn.model;
 
 import jakarta.persistence.*;
@@ -5,7 +7,8 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "statistics")
-public class Statistics {
+public class Statistics 
+{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,15 +18,16 @@ public class Statistics {
     
     private String username;
     
-    private Integer points; // initially 0 or null
+    private Integer points; // initially, it is set at 0
     
-    // loginTime marks when the current session started (if logged in)
+    // loginTime
     private LocalDateTime loginTime;
     
-    // accumulatedTime (in seconds) is the total duration logged in over all sessions
+    // accumulatedTime - and this is in seconds...
     private Long accumulatedTime;
     
     private Integer quizzesCompleted;
+
 
     public Statistics() {}
 
@@ -36,10 +40,11 @@ public class Statistics {
         this.quizzesCompleted = quizzesCompleted;
     }
 
-    // Getters and setters
+    // get and set methods
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
+
 
     public Long getUserId() { return userId; }
     public void setUserId(Long userId) { this.userId = userId; }
@@ -58,4 +63,5 @@ public class Statistics {
 
     public Integer getQuizzesCompleted() { return quizzesCompleted; }
     public void setQuizzesCompleted(Integer quizzesCompleted) { this.quizzesCompleted = quizzesCompleted; }
+
 }

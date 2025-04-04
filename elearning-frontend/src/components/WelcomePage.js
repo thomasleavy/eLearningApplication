@@ -1,4 +1,4 @@
-// src/components/WelcomePage.js
+//WelcomePage.js
 import React, { useState } from 'react';
 import axios from 'axios';
 import './WelcomePage.css';
@@ -28,12 +28,12 @@ function WelcomePage() {
         password: regPassword,
         role: regRole,
       };
-      // If registering as a pupil, include the teacher's username (optional)
+      // If registering as a pupil, include the teacher's username, though this is counted as being optional
       if (regRole === 'pupil' && teacherUsername.trim() !== '') {
         payload.teacherUsername = teacherUsername;
       }
       const response = await axios.post('/api/register', payload);
-      // Store username, userId and teacherId (if provided) in localStorage
+      // Store username, userId and teacherId (if it was given) in localStorage
       if (response.data && response.data.username) {
         localStorage.setItem("username", response.data.username);
         localStorage.setItem("userId", response.data.id);
@@ -41,15 +41,15 @@ function WelcomePage() {
           localStorage.setItem("teacherId", response.data.teacherId);
         }
       }
-      // Redirect based on role
+      // Redirect based on the role
       if (response.data.role === 'pupil') {
         navigate('/pupil-dashboard');
       } else if (response.data.role === 'teacher') {
         navigate('/teacher-dashboard');
       }
     } catch (error) {
-      console.error('Registration error:', error);
-      alert('Registration failed. Please try again.');
+      console.error('There was an error with registration:', error);
+      alert('Registration did not work. Please try again!');
     }
   };
 
@@ -60,17 +60,19 @@ function WelcomePage() {
         email: loginEmail,
         password: loginPassword,
       });
-      // Store username, userId and teacherId (if provided) in localStorage
+
+      // Store username, userId and teacherId (if it was given) in localStorage
       if (response.data && response.data.username) {
         localStorage.setItem("username", response.data.username);
         localStorage.setItem("userId", response.data.id);
         if (response.data.role === 'pupil' && response.data.teacherId) {
           localStorage.setItem("teacherId", response.data.teacherId);
         } else {
-          localStorage.removeItem("teacherId"); // Clear if not applicable.
+          localStorage.removeItem("teacherId"); 
+
         }
       }
-      // If pupil, wait for the login statistics endpoint to update login_time before navigating.
+    
       if (response.data.role === 'pupil') {
         await axios.post('/api/statistics/login', {
           userId: response.data.id,
@@ -81,8 +83,8 @@ function WelcomePage() {
         navigate('/teacher-dashboard');
       }
     } catch (error) {
-      console.error('Login error:', error);
-      alert('Invalid credentials. Please try again.');
+      console.error('there was an error with logging in:', error);
+      alert('Sorry, wrong credentials. Please try again!');
     }
   };
 

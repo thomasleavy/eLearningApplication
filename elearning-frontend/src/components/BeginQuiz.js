@@ -1,4 +1,5 @@
-// src/components/BeginQuiz.js
+//BeginQuiz.js
+
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -11,7 +12,7 @@ const BeginQuiz = () => {
   const [quizCode, setQuizCode] = useState('');
   const [quizList, setQuizList] = useState([]);
 
-  // Retrieve teacherId from localStorage (set during pupil login or change teacher)
+  // get  teacherId from localStorage 
   const teacherId = localStorage.getItem("teacherId");
 
   useEffect(() => {
@@ -22,11 +23,11 @@ const BeginQuiz = () => {
           setQuizList(response.data);
         })
         .catch(error => {
-          console.error('Error fetching quiz list for teacher:', error);
+          console.error('there was an error when fetching quiz list for teacher:', error);
           setQuizList([]);
         });
     } else {
-      console.warn("No teacherId found in localStorage; not fetching teacher-specific quizzes.");
+      console.warn("No teacherId found in localStorage.");
       setQuizList([]);
     }
   }, [teacherId]);
@@ -41,14 +42,14 @@ const BeginQuiz = () => {
 
   const handleFetchQuiz = () => {
     if (!quizCode) {
-      alert('Please select or enter a quiz code.');
+      alert('Please choose/enter a quiz code.');
       return;
     }
     axios.get(`/api/quiz/code/${quizCode}`)
       .then(response => navigate('/quiz', { state: { quizData: response.data } }))
       .catch(error => {
-        console.error('Error fetching quiz:', error);
-        alert('Quiz not found. Please check your code.');
+        console.error('there was an error fetching quiz:', error);
+        alert('the quiz was not found. Please check your code and try again!');
       });
   };
 

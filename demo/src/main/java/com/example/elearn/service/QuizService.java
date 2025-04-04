@@ -1,4 +1,4 @@
-// src/main/java/com/example/elearn/service/QuizService.java
+//QuizService.java
 package com.example.elearn.service;
 
 import com.example.elearn.model.Quiz;
@@ -29,7 +29,7 @@ public class QuizService {
         return quizRepository.findByCode(code);
     }
     
-    // Fetch quizzes by teacher id.
+    // get quizzes by the teacher id .
     public List<Quiz> getQuizzesByTeacherId(Long teacherId) {
         return quizRepository.findByTeacherId(teacherId);
     }

@@ -1,4 +1,5 @@
-// src/components/MyResults.js
+//MyResults.js
+
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PupilHeader from './PupilHeader';
@@ -18,7 +19,7 @@ const MyResults = () => {
       fetch(`/api/quiz/teacher/${teacherId}`)
         .then(response => response.json())
         .then(data => setQuizList(data))
-        .catch(error => console.error("Error fetching quiz list:", error));
+        .catch(error => console.error("there was an error fetching the quiz list:", error));
     } else {
       setQuizList([]);
     }
@@ -31,28 +32,28 @@ const MyResults = () => {
 
   const handleViewResults = () => {
     if (!selectedQuizId) {
-      alert("Please select a quiz.");
+      alert("Please choose a quiz.");
       return;
     }
     fetch(`/api/quiz/results/${selectedQuizId}`)
       .then(response => {
         if (!response.ok) {
-          throw new Error("No results found");
+          throw new Error("No results found!");
         }
         return response.json();
       })
       .then(data => {
-        // Filter to only show the current pupil's result
+      
         const myResult = data.results.find(result => result.username === username);
         if (myResult) {
           setResultData(myResult);
         } else {
-          alert("No results found for your account for this quiz.");
+          alert("No results found for your account for this quiz, try again");
         }
       })
       .catch(error => {
-        console.error("Error fetching your quiz results:", error);
-        alert("Error fetching your quiz results.");
+        console.error("there was an error fetching your quiz results:", error);
+        alert("there was an error fetching your quiz results!");
       });
   };
 

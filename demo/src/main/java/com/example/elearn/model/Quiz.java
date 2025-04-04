@@ -1,4 +1,4 @@
-// src/main/java/com/example/elearn/model/Quiz.java
+//Quiz.java
 package com.example.elearn.model;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -13,14 +13,12 @@ public class Quiz {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;  // Unique quiz id for the entire quiz
+    private Long id;  // this is a unique quiz id for the whole quiz
 
     private String quizTitle;
     private String createdBy;
     private LocalDateTime creationDate;
-    private String code;  // Unique code to share with pupils
-
-    // New field: teacherId to associate the quiz with its creator.
+    private String code;  // this is a unique code for the teacher to share with the pupils
     private Long teacherId;
 
     @JsonManagedReference

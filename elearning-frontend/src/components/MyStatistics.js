@@ -1,4 +1,5 @@
-// src/components/MyStatistics.js
+// MyStatistics.js
+
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PupilHeader from './PupilHeader';
@@ -18,12 +19,12 @@ const MyStatistics = () => {
           setStats(response.data);
         })
         .catch(error => {
-          console.error("Error fetching statistics:", error);
+          console.error("there wasn an error fetching the statistics:", error);
         });
     }
   }, [userId]);
 
-  // If loginTime is set, add the current session duration (in seconds) to accumulatedTime.
+  
   const formatAccumulatedTime = (accumulatedSeconds, loginTime) => {
     let totalSeconds = accumulatedSeconds || 0;
     if (loginTime) {

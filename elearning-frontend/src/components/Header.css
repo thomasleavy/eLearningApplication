@@ -1,0 +1,29 @@
+/*Header.css */
+.site-header {
+  background-color: #F5576C;
+  color: #ffffff;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;  
+}
+
+.site-header h1 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+/* media queries */
+@media (max-width: 768px) {
+  .site-header h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-header {
+    padding: 15px;
+  }
+  .site-header h1 {
+    font-size: 1.8rem;
+  }
+}

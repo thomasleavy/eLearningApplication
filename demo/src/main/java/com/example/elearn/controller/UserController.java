@@ -1,4 +1,4 @@
-// src/main/java/com/example/elearn/controller/UserController.java
+//UserController.java
 package com.example.elearn.controller;
 
 import com.example.elearn.model.User;
@@ -22,33 +22,32 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-    // Registration endpoint
+    //this is a registration endpoint
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody User user) {
         User savedUser = userService.registerUser(user);
         return ResponseEntity.ok(savedUser);
     }
 
-    // Login endpoint
+    //this is a login endpoint
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody User loginRequest) {
         User user = userService.loginUser(loginRequest.getEmail(), loginRequest.getPassword());
         if (user != null) {
             return ResponseEntity.ok(user);
         } else {
-            return ResponseEntity.status(401).body("Invalid credentials");
+            return ResponseEntity.status(401).body("Wrong credentials");
         }
     }
     
-    // New endpoint: Update pupil's teacher association.
-    // Updated mapping to avoid conflict with PupilController.
+    
     @PutMapping("/users/pupils/{pupilId}/teacher")
     public ResponseEntity<?> updateTeacherForPupil(@PathVariable Long pupilId,
                                                    @RequestBody Map<String, String> payload) {
         String teacherUsername = payload.get("teacherUsername");
         if (teacherUsername == null || teacherUsername.trim().isEmpty()) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                    .body("teacherUsername is required");
+                    .body("teacherUsername is needed");
         }
         Optional<User> pupilOpt = userRepository.findById(pupilId);
         if (pupilOpt.isEmpty()) {

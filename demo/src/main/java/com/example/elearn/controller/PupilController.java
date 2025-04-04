@@ -1,4 +1,4 @@
-// src/main/java/com/example/elearn/controller/PupilController.java
+//PupilController.java
 package com.example.elearn.controller;
 
 import com.example.elearn.model.User;
@@ -17,14 +17,14 @@ public class PupilController {
     @Autowired
     private UserRepository userRepository;
 
-    // Endpoint to fetch all pupil users registered to a given teacher
+    //This is the endpoint to fetch the pupil users registered to a specific teacher
     @GetMapping("/teacher/{teacherId}")
     public ResponseEntity<?> getPupilsByTeacher(@PathVariable Long teacherId) {
         List<User> pupils = userRepository.findByTeacherId(teacherId);
         return ResponseEntity.ok(pupils);
     }
 
-    // New endpoint: Disconnect a pupil from their teacher (clear teacherId)
+    //this endpoint disconnects a pupil from their asspcoated teacher
     @PutMapping("/{pupilId}/disconnect")
     public ResponseEntity<?> disconnectPupil(@PathVariable Long pupilId) {
         Optional<User> pupilOpt = userRepository.findById(pupilId);
@@ -32,16 +32,15 @@ public class PupilController {
             User pupil = pupilOpt.get();
             pupil.setTeacherId(null);
             userRepository.save(pupil);
-            return ResponseEntity.ok("Pupil disconnected successfully");
+            return ResponseEntity.ok("Pupil was disconnected");
         } else {
             return ResponseEntity.notFound().build();
         }
     }
 
-    // New endpoint: Update the teacher for a pupil using teacher's username
+    // this endpoint updates the teacher for a pupil using the username of the teacher
     @PutMapping("/{pupilId}/teacher")
     public ResponseEntity<?> updateTeacherForPupil(@PathVariable Long pupilId, @RequestBody UpdateTeacherRequest request) {
-        // Find teacher by username and role "teacher"
         Optional<User> teacherOpt = userRepository.findAll().stream()
                 .filter(u -> "teacher".equalsIgnoreCase(u.getRole()) && u.getUsername().equals(request.getTeacherUsername()))
                 .findFirst();
@@ -60,7 +59,7 @@ public class PupilController {
         return ResponseEntity.ok(pupil);
     }
 
-    // DTO class for updating teacher (you can also create a separate file if desired)
+    // This is a DTO class for updating a teacher
     public static class UpdateTeacherRequest {
         private String teacherUsername;
 

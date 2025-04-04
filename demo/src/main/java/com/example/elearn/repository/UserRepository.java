@@ -1,4 +1,4 @@
-// src/main/java/com/example/elearn/repository/UserRepository.java
+// UserRepository.java
 package com.example.elearn.repository;
 
 import com.example.elearn.model.User;
@@ -9,10 +9,10 @@ import java.util.Optional;
 public interface UserRepository extends JpaRepository<User, Long> {
     Optional<User> findByEmail(String email);
     
-    // New: Find user by username (for teacher lookup)
+    // Find user (i.e. pupil for exmaple) by username
     Optional<User> findByUsername(String username);
     
-    // Find all pupils associated with a given teacherId.
+    // Find pupils associated w/ a particular teacher
     List<User> findByTeacherId(Long teacherId);
 }
 
