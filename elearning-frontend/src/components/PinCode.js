@@ -14,7 +14,7 @@ const PinCode = () => {
 
   return (
     <div className="pin-code-container">
-      <h1>Your Quiz Code</h1>
+      <h1>Your Quiz Code!</h1>
       <div className="pin-code">{quizCode}</div>
       <button onClick={() => navigate('/teacher-dashboard')}>Back to Dashboard</button>
   
