@@ -4,7 +4,6 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import PupilHeader from './PupilHeader';
 import './Quiz.css';
-import Footer from './Footer'; 
 
 const Quiz = () => {
   const location = useLocation();

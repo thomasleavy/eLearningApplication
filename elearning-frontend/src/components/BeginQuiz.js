@@ -5,14 +5,13 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import PupilHeader from './PupilHeader';
 import './BeginQuiz.css';
-import Footer from './Footer'; 
 
 const BeginQuiz = () => {
   const navigate = useNavigate();
   const [quizCode, setQuizCode] = useState('');
   const [quizList, setQuizList] = useState([]);
+  const [errorMessage, setErrorMessage] = useState("");
 
-  // get  teacherId from localStorage 
   const teacherId = localStorage.getItem("teacherId");
 
   useEffect(() => {
@@ -34,22 +33,27 @@ const BeginQuiz = () => {
 
   const handleQuizCodeChange = (e) => {
     setQuizCode(e.target.value);
+    setErrorMessage("");
   };
 
   const handleDropdownChange = (e) => {
     setQuizCode(e.target.value);
+    setErrorMessage("");
   };
 
   const handleFetchQuiz = () => {
     if (!quizCode) {
-      alert('Please choose/enter a quiz code.');
+      setErrorMessage('Please choose/enter a quiz code.');
       return;
     }
     axios.get(`/api/quiz/code/${quizCode}`)
-      .then(response => navigate('/quiz', { state: { quizData: response.data } }))
+      .then(response => {
+        setErrorMessage("");
+        navigate('/quiz', { state: { quizData: response.data } });
+      })
       .catch(error => {
         console.error('there was an error fetching quiz:', error);
-        alert('the quiz was not found. Please check your code and try again!');
+        setErrorMessage('The quiz was not found. Please check your code and try again!');
       });
   };
 
@@ -76,14 +80,19 @@ const BeginQuiz = () => {
           <option value="" disabled>No quizzes available</option>
         )}
       </select>
+      {errorMessage && (
+        <div className="error-message">
+          <p>{errorMessage}</p>
+        </div>
+      )}
       <div className="quiz-buttons">
         <button onClick={handleFetchQuiz}>Begin Quiz</button>
         <button onClick={() => navigate('/pupil-dashboard')}>Back to Dashboard</button>
       </div>
-    
+     
     </div>
+
   );
 };
 
 export default BeginQuiz;
-

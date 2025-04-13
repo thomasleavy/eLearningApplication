@@ -18,33 +18,29 @@ const ManagePupils = () => {
         })
         .catch(error => {
           console.error("Error fetching pupils:", error);
-          alert("Error fetching pupils.");
+        
         });
     };
     fetchPupils();
   }, [teacherId]);
 
   const handleDisconnect = (pupilId) => {
-    if (window.confirm("Are you sure you want to disconnect this pupil?")) {
+    
+    axios.put(`/api/pupils/${pupilId}/disconnect`)
+      .then(response => {
+       
+        axios.get(`/api/pupils/teacher/${teacherId}`)
+          .then(response => {
+            setPupils(response.data);
+          })
+          .catch(error => {
+            console.error("Error fetching pupils:", error);
+          });
+      })
+      .catch(error => {
+        console.error("Error disconnecting pupil:", error);
       
-      axios.put(`/api/pupils/${pupilId}/disconnect`)
-        .then(response => {
-          alert("Pupil disconnected successfully.");
-         
-          axios.get(`/api/pupils/teacher/${teacherId}`)
-            .then(response => {
-              setPupils(response.data);
-            })
-            .catch(error => {
-              console.error("Error fetching pupils:", error);
-              alert("Error fetching pupils.");
-            });
-        })
-        .catch(error => {
-          console.error("Error disconnecting pupil:", error);
-          alert("Error disconnecting pupil.");
-        });
-    }
+      });
   };
 
   const handleBack = () => {
@@ -83,7 +79,6 @@ const ManagePupils = () => {
       <button className="back-button" onClick={handleBack}>Back to Dashboard</button>
     </div>
   );
-  
 };
 
 export default ManagePupils;

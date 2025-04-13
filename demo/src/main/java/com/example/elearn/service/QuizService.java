@@ -4,6 +4,7 @@ package com.example.elearn.service;
 import com.example.elearn.model.Quiz;
 import com.example.elearn.repository.QuizRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -29,7 +30,6 @@ public class QuizService {
         return quizRepository.findByCode(code);
     }
     
-    // get quizzes by the teacher id .
     public List<Quiz> getQuizzesByTeacherId(Long teacherId) {
         return quizRepository.findByTeacherId(teacherId);
     }
@@ -37,5 +37,10 @@ public class QuizService {
     public List<Quiz> getAllQuizzes() {
         return quizRepository.findAll();
     }
+    
+    // method with caching enabled.
+    @Cacheable(value = "quizCache", key = "#quizId")
+    public Quiz getQuizById(Long quizId) {
+        return quizRepository.findById(quizId).orElse(null);
+    }
 }
-

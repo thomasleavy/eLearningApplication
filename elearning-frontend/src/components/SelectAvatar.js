@@ -1,4 +1,5 @@
 //SelectAvatar.js
+//SelectAvatar.js
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import bronzeTrophy from '../assets/bronze_trophy.jpg';
@@ -19,6 +20,7 @@ const SelectPin = () => {
   const storedPin = userId ? localStorage.getItem(`chosenPin_${userId}`) : null;
   const [currentPin, setCurrentPin] = useState(storedPin || availablePins[0].src);
   const [points, setPoints] = useState(0);
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     if (userId) {
@@ -28,20 +30,21 @@ const SelectPin = () => {
             setPoints(response.data.points);
           }
         })
-        .catch(error => console.error("there was an rrror fetching thr statistics:", error));
+        .catch(error => console.error("there was an error fetching the statistics:", error));
     }
   }, [userId]);
 
   const handleSelectPin = (pinSrc, requiredPoints) => {
     if (points >= requiredPoints) {
       setCurrentPin(pinSrc);
+      setErrorMessage("");
       if (userId) {
         localStorage.setItem(`chosenPin_${userId}`, pinSrc);
       } else {
         localStorage.setItem('chosenPin', pinSrc);
       }
     } else {
-      alert(`You need at least ${requiredPoints} points to unlock this avatar.`);
+      setErrorMessage(`You need at least ${requiredPoints} points to unlock this avatar.`);
     }
   };
 
@@ -73,6 +76,11 @@ const SelectPin = () => {
           })}
         </div>
       </div>
+      {errorMessage && (
+        <div className="error-message">
+          <p>{errorMessage}</p>
+        </div>
+      )}
       <div className="unlock-section">
         <p>Points: {points}</p>
       </div>
