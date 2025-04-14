@@ -1,5 +1,4 @@
-//Header.js
-
+// Header.js
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Header.css';
@@ -9,16 +8,16 @@ const Header = () => {
 
   const handleClick = () => {
     const userId = localStorage.getItem("userId");
-    const teacherId = localStorage.getItem("teacherId");
+    const role = localStorage.getItem("role"); // Retrieve the user role
 
-//conditional statements for redirecting to appropriate page after clicking on the header
     if (userId) {
-      
-      if (teacherId) {
+      if (role === "pupil") {
         navigate('/pupil-dashboard');
-      } else {
- 
+      } else if (role === "teacher") {
         navigate('/teacher-dashboard');
+      } else {
+        // If role is not defined, redirect to a landing or home page.
+        navigate('/');
       }
     } else {
       navigate('/');
@@ -31,6 +30,5 @@ const Header = () => {
     </header>
   );
 };
-
 
 export default Header;

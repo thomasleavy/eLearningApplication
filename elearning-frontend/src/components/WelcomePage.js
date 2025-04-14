@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './WelcomePage.css';
 import { useNavigate } from 'react-router-dom';
-
+import Footer from './Footer'; 
 
 function WelcomePage() {
   const navigate = useNavigate();
@@ -33,15 +33,16 @@ function WelcomePage() {
         payload.teacherUsername = teacherUsername;
       }
       const response = await axios.post('/api/register', payload);
-      // Store username, userId and teacherId (if it was given) in localStorage
+      // stpre username, userId, teacherId (if given), and role in localStorage
       if (response.data && response.data.username) {
         localStorage.setItem("username", response.data.username);
         localStorage.setItem("userId", response.data.id);
+        localStorage.setItem("role", response.data.role);  // Save the role
         if (response.data.role === 'pupil' && response.data.teacherId) {
           localStorage.setItem("teacherId", response.data.teacherId);
         }
       }
-      // Redirect based on the role
+      // redirect, based on the role
       if (response.data.role === 'pupil') {
         navigate('/pupil-dashboard');
       } else if (response.data.role === 'teacher') {
@@ -61,15 +62,15 @@ function WelcomePage() {
         password: loginPassword,
       });
 
-      // Store username, userId and teacherId (if it was given) in localStorage
+      // Store username, userId, teacherId (if given) and role in localStorage
       if (response.data && response.data.username) {
         localStorage.setItem("username", response.data.username);
         localStorage.setItem("userId", response.data.id);
+        localStorage.setItem("role", response.data.role); 
         if (response.data.role === 'pupil' && response.data.teacherId) {
           localStorage.setItem("teacherId", response.data.teacherId);
         } else {
           localStorage.removeItem("teacherId"); 
-
         }
       }
     
