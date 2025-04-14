@@ -1,10 +1,22 @@
-/*SelectAvatar.css */
+/* src/components/SelectAvatar.css */
+
 .select-pin {
   max-width: 600px;
   margin: 0 auto;
   text-align: center;
   padding: 20px;
   font-family: Arial, sans-serif;
+}
+
+/* Large, eye-catching container for Points */
+.points-container {
+  background-color: #f1a1e6; /* gold-like color for emphasis */
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 1.8rem;
+  font-weight: bold;
 }
 
 .current-pin-container {
@@ -35,16 +47,25 @@
   font-size: 1.2rem;
 }
 
-.pin-images {
-  display: flex;
-  justify-content: center;
+.pin-images-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  flex-wrap: wrap;
+  justify-items: center;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+/* Responsive layout: 2 columns on small screens */
+@media (max-width: 480px) {
+  .pin-images-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .pin-image {
-  width: 150px;
-  height: 150px;
+  width: 130px; /* slightly smaller for better layout on small screens */
+  height: 130px;
   object-fit: cover;
   border: 3px solid transparent;
   border-radius: 10px;
@@ -64,13 +85,9 @@
   opacity: 0.5;
 }
 
-.unlock-section {
-  margin: 20px 0;
-}
-
-.unlock-section p {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
+.error-message p {
+  color: red;
+  font-weight: bold;
 }
 
 button {
@@ -82,14 +99,11 @@ button {
   background: #f5576c;
   color: #fff;
   transition: background 0.3s ease;
+  margin-top: 10px;
 }
 
 button:hover {
   background: #f093fb;
-}
-
-.back-button {
-  margin-top: 5px;
 }
 
 
