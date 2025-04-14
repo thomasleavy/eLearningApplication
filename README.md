@@ -26,7 +26,9 @@ It has features like user registration, role-based login, quiz taking and creati
   
 - PostgreSQL - for storage of data
 - pgAdmin 4 - for querying/managing the PostgreSQL database.
-- **Build Tools/Version Control
+
+**Build Tools/Version Control**
+
 - Maven - for project build/management of dependencies.
 - Git and GitHub - for verison control and repository hosting.
 
