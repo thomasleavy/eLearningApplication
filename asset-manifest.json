@@ -1,18 +1,22 @@
 {
   "files": {
-    "main.css": "/eLearningApplication/static/css/main.b2106507.css",
-    "main.js": "/eLearningApplication/static/js/main.292103b7.js",
+    "main.css": "/eLearningApplication/static/css/main.79709fa2.css",
+    "main.js": "/eLearningApplication/static/js/main.ee39aa65.js",
     "static/js/453.dcd2a09a.chunk.js": "/eLearningApplication/static/js/453.dcd2a09a.chunk.js",
-    "static/media/gold_trophy.jpg": "/eLearningApplication/static/media/gold_trophy.f7807b5a6b43e209a60f.jpg",
     "static/media/LinkedIn_icon.svg.png": "/eLearningApplication/static/media/LinkedIn_icon.svg.099eef4954507de4dc41.png",
+    "static/media/red_monster.jpg": "/eLearningApplication/static/media/red_monster.1f097aa2a8ab5fea395a.jpg",
+    "static/media/blue_monster.jpg": "/eLearningApplication/static/media/blue_monster.e4f174dc1a21e8420018.jpg",
+    "static/media/pink_monster.jpg": "/eLearningApplication/static/media/pink_monster.985f72b720adaefd40de.jpg",
+    "static/media/green_monster.jpg": "/eLearningApplication/static/media/green_monster.32654a6492320f2f5060.jpg",
+    "static/media/orange_monster.jpg": "/eLearningApplication/static/media/orange_monster.54be04dfb8ed386a8b9c.jpg",
     "static/media/github_logo.svg": "/eLearningApplication/static/media/github_logo.255db585f8a0eb28a1e4deb91bde207d.svg",
     "index.html": "/eLearningApplication/index.html",
-    "main.b2106507.css.map": "/eLearningApplication/static/css/main.b2106507.css.map",
-    "main.292103b7.js.map": "/eLearningApplication/static/js/main.292103b7.js.map",
+    "main.79709fa2.css.map": "/eLearningApplication/static/css/main.79709fa2.css.map",
+    "main.ee39aa65.js.map": "/eLearningApplication/static/js/main.ee39aa65.js.map",
     "453.dcd2a09a.chunk.js.map": "/eLearningApplication/static/js/453.dcd2a09a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b2106507.css",
-    "static/js/main.292103b7.js"
+    "static/css/main.79709fa2.css",
+    "static/js/main.ee39aa65.js"
   ]
 }
