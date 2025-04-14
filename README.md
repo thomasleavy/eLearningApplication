@@ -39,7 +39,7 @@ It has features like user registration, role-based login, quiz taking and creati
 - Java 17
 - Maven
 - PostgreSQL (configured w/ connection details in application.properties
-**To run the backend...**
+- **To run the backend...**
 Open a terminal in the project root directory. Execute:
 ***Maven clean install***
 followed by:
@@ -49,7 +49,7 @@ followed by:
 
 - Node.js
 - npm
-**To run the frontend...**
+- **To run the frontend...**
 Open a terminal in the elearning-frontend directory and bash:
 ***npm install**
 followed by:
