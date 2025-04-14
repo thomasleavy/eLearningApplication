@@ -1,10 +1,10 @@
-## The Primary Pals e-Learning Platform
+# The Primary Pals e-Learning Platform
 
 This repository contains source code for the **Primary Pals e-Learing Platform** - the final project for my Higher Diploma in Science in Computing (Software Development). 
 The platform is a full-stack e-learning application for primary school pupils and teachers. 
 It has features like user registration, role-based login, quiz taking and creating, avatar selection with unlockable features, statistics tracking, data gathering for teachers, and teacher management of associated pupils.
 
-# Technologies used
+## Technologies used
 
 **Frontend**
 React.js - for fynamic interfaces.
@@ -22,7 +22,7 @@ pgAdmin 4 - for querying/managing the PostgreSQL database.
 Maven - for project build/management of dependencies.
 Git and GitHub - for verison control and repository hosting.
 
-# Setup / Running the Project
+## Setup / Running the Project
 
 **Backend prerequisites**
 Java 17
@@ -42,7 +42,7 @@ Open a terminal in the elearning-frontend directory and bash:
 followed by:
 ***npm start***
 
-# Testing
+## Testing
 
 The project includes frontend/backend tests. Run backend tests in the root terminal with:
 ***mvn test***
