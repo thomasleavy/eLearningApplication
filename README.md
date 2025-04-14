@@ -4,6 +4,9 @@ This repository contains source code for the **Primary Pals e-Learing Platform**
 The platform is a full-stack e-learning application for primary school pupils and teachers. 
 It has features like user registration, role-based login, quiz taking and creating, avatar selection with unlockable features, statistics tracking, data gathering for teachers, and teacher management of associated pupils.
 
+## URL
+- https://thomasleavy.github.io/eLearningApplication/
+
 ## Technologies used
 
 **Frontend**
