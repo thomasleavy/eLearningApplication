@@ -49,7 +49,7 @@ followed by:
 
 - Node.js
 - npm
-- **To run the frontend...**
+<br\> **To run the frontend...**
 Open a terminal in the elearning-frontend directory and bash:
 ***npm install**
 followed by:
