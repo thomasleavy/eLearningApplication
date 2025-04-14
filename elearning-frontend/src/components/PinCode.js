@@ -2,7 +2,6 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './PinCode.css';
-import Footer from './Footer'; 
 
 const PinCode = () => {
   const navigate = useNavigate();

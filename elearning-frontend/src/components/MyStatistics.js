@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 import PupilHeader from './PupilHeader';
 import axios from 'axios';
 import './MyStatistics.css';
-import Footer from './Footer'; 
 
 const MyStatistics = () => {
   const navigate = useNavigate();

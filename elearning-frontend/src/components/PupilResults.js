@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './PupilResults.css';
-import Footer from './Footer'; 
+
 
 const PupilResults = () => {
   const navigate = useNavigate();

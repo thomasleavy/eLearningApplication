@@ -2,7 +2,6 @@
 //PupilHeader.js
 import React from 'react';
 import './PupilHeader.css';
-import Footer from './Footer'; 
 
 const PupilHeader = () => {
   const userId = localStorage.getItem("userId");
