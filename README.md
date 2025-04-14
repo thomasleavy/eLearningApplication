@@ -7,20 +7,20 @@ It has features like user registration, role-based login, quiz taking and creati
 ## Technologies used
 
 - **Frontend**
-- 
+  
 - React.js - for fynamic interfaces.
 - Axios - for making HTTP requests.
 - React Router - for client-side routing.
 - CSS/HTML - for styling/layout.
-- 
+  
 - **Backend**
-- 
+  
 - Java 17 with Spring boot 3.4.3 - for developing RESTful APIs.
 - Spring Data JPA - for persistence/database operations.
 - Spring Security with BCrypt - for password encryption.
-- 
+  
 - **Database**
-- 
+  
 - PostgreSQL - for storage of data
 - pgAdmin 4 - for querying/managing the PostgreSQL database.
 - **Build Tools/Version Control
