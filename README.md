@@ -38,7 +38,7 @@ It has features like user registration, role-based login, quiz taking and creati
 
 - Java 17
 - Maven
-- PostgreSQL (configured w/ connection details in application.properties
+- PostgreSQL (configured w/ connection details in application.properties)
 - **To run the backend...**
 Open a terminal in the project root directory. Execute:
 ***Maven clean install***
