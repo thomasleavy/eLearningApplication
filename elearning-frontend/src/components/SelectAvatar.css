@@ -8,9 +8,8 @@
   font-family: Arial, sans-serif;
 }
 
-/* Large, eye-catching container for Points */
 .points-container {
-  background-color: #f1a1e6; /* gold-like color for emphasis */
+  background-color: #f1a1e6; 
   padding: 15px;
   margin-bottom: 20px;
   border-radius: 8px;
@@ -56,7 +55,7 @@
   max-width: 600px;
 }
 
-/* Responsive layout: 2 columns on small screens */
+/* responsive layout - 2 columns on small screens */
 @media (max-width: 480px) {
   .pin-images-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -64,7 +63,7 @@
 }
 
 .pin-image {
-  width: 130px; /* slightly smaller for better layout on small screens */
+  width: 130px; 
   height: 130px;
   object-fit: cover;
   border: 3px solid transparent;
