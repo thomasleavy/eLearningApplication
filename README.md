@@ -1,6 +1,6 @@
 # Primary Pals e-Learning Platform
 
-This repository contains source code for the **Primary Pals e-Learing Platform** - the final project for my Higher Diploma in Science in Computing (Software Development). 
+This repository contains source code for the **Primary Pals e-Learning Platform** - the final project for my Higher Diploma in Science in Computing (Software Development). 
 The platform is a full-stack e-learning application for primary school pupils and teachers. 
 It has features like user registration, role-based login, quiz taking and creating, avatar selection with unlockable features, statistics tracking, data gathering for teachers, and teacher management of associated pupils.
 
